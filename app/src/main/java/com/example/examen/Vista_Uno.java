@@ -2,6 +2,8 @@ package com.example.examen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,38 +23,46 @@ public class Vista_Uno extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vista_uno);
-        Button btLink1Main = findViewById(R.id.btLink1Regresar);
-        btLink1Main.setOnClickListener(v -> {
-            Intent intent = new   Intent(v.getContext(), MainActivity.class);
+
+        // Boton Alert
+        Button btAlert = findViewById(R.id.btAlert);
+        btAlert.setOnClickListener(v -> {
+            // Crea un AlertDialog.Builder
+            AlertDialog.Builder builder = new AlertDialog.Builder(Vista_Uno.this);
+            builder.setTitle("Título del diálogo");
+            builder.setMessage("Este es un mensaje de ejemplo.");
+            // Configura los botones del diálogo
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Acción al hacer clic en Aceptar
+                    // Puedes agregar tu lógica aquí
+                }
+            });
+            builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Acción al hacer clic en Cancelar
+                    // Puedes agregar tu lógica aquí
+                }
+            });
+            // Crea el AlertDialog
+            AlertDialog alertDialog = builder.create();
+            // Muestra el AlertDialog
+            alertDialog.show();
+        });
+        // Boton Regresar
+        Button btRegresar = findViewById(R.id.btRegresar);
+        btRegresar.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), vista_principal.class);
             startActivity(intent);
         });
-        FloatingActionButton fabLink1Fab1 = findViewById(R.id.fab);
-        fabLink1Fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Notificación de Clic en FAB", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
+
+        Button btMain = findViewById(R.id.btRegresar);
+        btMain.setOnClickListener(v -> {
+            Intent intent = new   Intent(v.getContext(), vista_principal.class);
+            startActivity(intent);
         });
 
-        RadioGroup radioGroup = findViewById(R.id.rgOpciones);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton radioButton = findViewById(i);
-                String seleccion = radioButton.getText().toString();
-                Toast.makeText(Vista_Uno.this, "Seleccionaste: " + seleccion, Toast.LENGTH_LONG).show();
-            }
-        });
-        SwitchMaterial toggleButton = findViewById(R.id.toggleButton);
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked) {
-                    Toast.makeText(Vista_Uno.this, "Activo", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(Vista_Uno.this, "No Activo", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
 }

@@ -45,7 +45,7 @@ public class Vista_Tres extends AppCompatActivity {
         // Boton Regresar
         Button btL3Regresar = findViewById(R.id.bt3Regresar);
         btL3Regresar.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), MainActivity.class);
+            Intent intent = new Intent(v.getContext(), vista_principal.class);
             startActivity(intent);
         });
     }

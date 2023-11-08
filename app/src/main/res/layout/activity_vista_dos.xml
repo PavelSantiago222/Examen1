@@ -7,7 +7,7 @@
     tools:context=".Vista_Dos">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bienvenidos vista 2"
@@ -15,14 +15,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/btLink2Regresar"
+        android:id="@+id/btAlert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Alert"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/btRegresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="155dp" />
+        android:text="Regresar"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button btEntrar = findViewById(R.id.btEntrar);
         btEntrar.setOnClickListener(v -> {
-            Intent intent = new Intent (v.getContext(), MainActivity.class);
+            Intent intent = new Intent (v.getContext(), vista_principal.class);
             startActivity(intent);
         });
+
+
     }
 }

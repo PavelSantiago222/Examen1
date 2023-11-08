@@ -25,8 +25,8 @@ public class vista_principal extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button btMainL = findViewById(R.id.btMenu3);
-        btMain2.setOnClickListener(v -> {
+        Button btMain3 = findViewById(R.id.btMenu3);
+        btMain3.setOnClickListener(v -> {
             Intent intent = new Intent (v.getContext(), Vista_Tres.class);
             startActivity(intent);
         });
